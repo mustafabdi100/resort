@@ -1,0 +1,30 @@
+{% extends "listing/base.html" %} 
+
+{% block content %}
+<div class="section">
+  <div class="container rooms">
+    <div class="rooms-heading-wrap">
+      <div class="label-text">high comfort rooms</div>
+      <h2 class="large-heading margin-none">Enjoy our lovely rooms with your family</h2>
+    </div>
+    <div class="w-dyn-list">
+      <div role="list" class="grid-half rooms w-dyn-items">
+        {% for room in rooms %}
+        <div role="listitem" class="collection-item w-dyn-item">
+          <a href="{% url 'room_detail' room.pk %}" class="card w-inline-block">
+            <div class="gradient-overlay"></div>
+            <div class="card-photo-mask">
+              <img src="{{ room.image.url }}" loading="lazy" alt="{{ room.title }}" class="card-photo" />
+            </div>
+            <div class="card-content">
+              <div class="large-text">{{ room.title }}</div>
+              <div class="price">${{ room.price }}</div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

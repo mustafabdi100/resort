@@ -1,0 +1,68 @@
+{% extends "listing/base.html" %}
+
+{% block content %}
+<div class="section cms-hero">
+  <div class="container">
+    <div class="header-wrap">
+      <h1 class="cms-heading">{{ event.title }}</h1>
+    </div>
+    <div class="cms-slider w-slider">
+      <div class="cms-mask w-slider-mask">
+        {% for image in event.images.all %}
+        <div class="cms-slide w-slide">
+          <img src="{{ image.image.url }}" loading="lazy" alt="" class="cms-slider-photo" />
+        </div>
+        {% endfor %}
+      </div>
+      <div class="left-arrow dynamic-pages w-slider-arrow-left">
+        <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6040cfba30d1ee7c0c21bed2_Slider%20arrow%20-%20white.svg" loading="lazy" alt="" class="slide-left-arrow" />
+      </div>
+      <div class="right-arrow dynamic-pages w-slider-arrow-right">
+        <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6040cfba30d1ee7c0c21bed2_Slider%20arrow%20-%20white.svg" loading="lazy" alt="" class="slide-right-arrow" />
+      </div>
+      <div class="cms-slide-nav w-slider-nav w-round"></div>
+    </div>
+  </div>
+</div>
+<div class="section cms">
+  <div class="container">
+    <div class="cms-flexbox">
+      <div class="cms-content">
+        <div class="w-richtext">
+          <h3>Event description</h3>
+          <p>{{ event.description }}</p>
+          <h3>Event information</h3>
+          <p>{{ event.event_information }}</p>
+        </div>
+        <div class="cms-amenities-wrap">
+          <h2 class="large-heading margin-none">This event offers the following:</h2>
+          <div class="cms-amenities-content">
+            <div class="w-dyn-list">
+              <div role="list" class="grid-half amenities w-dyn-items">
+                {% for amenity in event.amenities.all %}
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="{{ amenity.icon.url }}" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">{{ amenity.name }}</div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cms-book-sticky">
+        <div class="sticky-header">
+          <div class="medium-text">Event information</div>
+          <div class="room-price">${{ event.price }}</div>
+        </div>
+        <div class="sticky-content">
+          <div>{{ event.event_information }}</div>
+          <a href="#" class="reservation-button margin-top-large w-button">book now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

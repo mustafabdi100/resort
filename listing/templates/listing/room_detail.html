@@ -1,0 +1,109 @@
+{% extends "listing/base.html" %}
+
+{% block content %}
+<div class="section cms-hero">
+  <div class="container">
+    <div class="header-wrap">
+      <h1 class="cms-heading">{{ room.title }}</h1>
+    </div>
+    <div class="cms-slider w-slider">
+      <div class="cms-mask w-slider-mask">
+        {% for image in room.images.all %}
+        <div class="cms-slide w-slide">
+          <img src="{{ image.image.url }}" loading="lazy" alt="" class="cms-slider-photo" />
+        </div>
+        {% endfor %}
+      </div>
+      <div class="left-arrow dynamic-pages w-slider-arrow-left">
+            <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6040cfba30d1ee7c0c21bed2_Slider%20arrow%20-%20white.svg" loading="lazy" alt="" class="slide-left-arrow" />
+            <img src="" loading="lazy" alt="" class="slide-left-arrow" />
+      </div>
+      <div class="right-arrow dynamic-pages w-slider-arrow-right">
+            <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6040cfba30d1ee7c0c21bed2_Slider%20arrow%20-%20white.svg" loading="lazy" alt="" class="slide-right-arrow" />
+            <img src="" loading="lazy" alt="" class="slide-right-arrow" />
+      </div>
+      <div class="cms-slide-nav w-slider-nav w-round"></div>
+    </div>
+  </div>
+</div>
+<div class="section cms">
+  <div class="container">
+    <div class="cms-flexbox">
+      <div class="cms-content">
+        <div class="w-richtext">
+          <h3>Room description</h3>
+          <p>{{ room.description }}</p>
+        </div>
+        <div class="cms-amenities-wrap">
+          <h2 class="large-heading margin-none">This room has the following amenities:</h2>
+          <div class="cms-amenities-content">
+            <div class="w-dyn-list">
+              <div role="list" class="grid-half amenities w-dyn-items">
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/604669c54b1f3d9b7933339b_cleaning-service%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Cleaning service</div>
+                  </div>
+                </div>
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/60466a2631599fb7b57decb1_fitness-center%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Fitness center</div>
+                  </div>
+                </div>
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/60466a1bd8e0aa04febf6872_indoor%20pool%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Indoor pool</div>
+                  </div>
+                </div>
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/60466a0a5238b1b9f644443d_room-service%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Room service</div>
+                  </div>
+                </div>
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/60466a16dd67037bd26e6bbb_wifi-room%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Wifi-room</div>
+                  </div>
+                </div>
+                <div role="listitem" class="w-dyn-item">
+                  <div class="cms-amenities-item">
+                    <img src="https://assets.website-files.com/60411d70f10bcc5785a54163/604669dbf5efbbccf5113b77_hot%20water%20icon.png" loading="lazy" alt="" class="cms-amenities-icon" />
+                    <div class="label-text gray-text">Hot water</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cms-book-sticky">
+        <div class="sticky-header">
+          <div class="medium-text">Room information</div>
+          <div class="room-price">${{ room.price }}</div>
+        </div>
+        <div class="sticky-content">
+          <div class="people-beds-wrap">
+            <div class="room-people-item">
+              <div class="room-people-info">
+                <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6049ea35f491ab0ac56e7b9c_People%20icon.png" loading="lazy" alt="" />
+                <div class="room-people-text">{{ room.num_people }} People</div>
+              </div>
+            </div>
+            <div class="room-price-item">
+              <div class="room-people-info">
+                <img src="https://assets.website-files.com/603f4fa8460be240318c62b8/6049ea34610e53ce980938d1_Beds%20icon.png" loading="lazy" alt="" />
+                <div class="room-people-text">{{ room.num_beds }} Beds</div>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.booking.com/" class="reservation-button w-button">book now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

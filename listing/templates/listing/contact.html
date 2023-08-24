@@ -1,0 +1,50 @@
+{% extends "listing/base.html" %}
+
+{% block content %}
+<div class="section header">
+  <div class="container">
+    <div class="header-wrap">
+      <h1 class="extra-large-heading margin-none">contact, <br />let’s talk</h1>
+    </div>
+  </div>
+</div>
+<div class="section padding-top-none">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="small-column">
+        <div id="w-node-c2f2655f-2451-fe7c-f4ec-e9d5ecd69dd6-aeb9bb73" class="margin-bottom-medium">8502 Preston Rd. Inglewood, Maine 98380</div>
+        <div class="margin-bottom-medium">(702) 555-0122</div>
+        <div>hello@template.com</div>
+      </div>
+      <div class="contact-form w-form">
+        <form id="email-form" name="email-form" class="form-wrap" method="post">
+          {% csrf_token %}
+          <div id="w-node-f4cf451d-1152-0ed8-f570-9ed6edd53442-aeb9bb73">
+            <label for="name">Name</label>
+            <input type="text" class="input w-input" maxlength="256" name="Name" placeholder="Enter your name" id="Name" />
+          </div>
+          <div id="w-node-f4cf451d-1152-0ed8-f570-9ed6edd53446-aeb9bb73">
+            <label for="Phone">Phone</label>
+            <input type="tel" class="input w-input" maxlength="256" name="Phone" placeholder="Enter your phone" id="Phone" />
+          </div>
+          <div id="w-node-f4cf451d-1152-0ed8-f570-9ed6edd5344a-aeb9bb73">
+            <label for="Email-3">Email</label>
+            <input type="email" class="input w-input" maxlength="256" name="Email" placeholder="Enter your email" id="Email" />
+          </div>
+          <div id="w-node-f4cf451d-1152-0ed8-f570-9ed6edd53452-aeb9bb73">
+            <label for="Message">Message</label>
+            <textarea placeholder="For questions about our hotel &amp; events reservations, we would love to chat." maxlength="5000" id="Message" name="Message" class="textarea w-input"></textarea>
+          </div>
+          <input type="submit" value="Send message" data-wait="Please wait..." class="submit-button w-button" />
+        </form>
+        <div class="success-message w-form-done">
+          <div>Thank you! Your submission has been received!</div>
+        </div>
+        <div class="error-message w-form-fail">
+          <div>Oops! Something went wrong while submitting the form.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

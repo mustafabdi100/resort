@@ -1,0 +1,29 @@
+{% extends "listing/base.html" %}
+
+{% block content %}
+<div class="section cms-hero">
+  <div class="container">
+    <div class="header-wrap">
+      <h1 class="cms-heading">ABOUT US</h1>
+    </div>
+    <img src="{{ about_content.image.url }}" loading="lazy" alt="" class="cms-hero-photo" />
+  </div>
+</div>
+<div class="section cms">
+  <div class="container">
+    <div class="cms-flexbox">
+      <div class="cms-content">
+        <div class="w-richtext">
+          <h3>{{ about_content.title }}</h3>
+          
+          <h3>Our Mission</h3>
+          <p>{{ about_content.mission_statement }}</p>
+          <h3>Our Values</h3>
+          <p>{{about_content.values}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}
